@@ -14,11 +14,12 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
     // Modal States
     const [openAddUpdates, setOpenAddUpdates] = useState(false);
+    // Modal Handlers
+    const handleOpenAddUpdates = () => setOpenAddUpdates(!openAddUpdates);
 
     // Other States
     const [select, setSelect] = useState("overdue");
 
-    const handleOpenAddUpdates = () => setOpenAddUpdates(!openAddUpdates);
     return (
         <>
             <Head>
