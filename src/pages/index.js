@@ -7,6 +7,7 @@ import { Badge, Button, ButtonGroup } from "@material-tailwind/react";
 import React, { useState } from "react";
 import Head from "next/head";
 import OrderTimelineModal from "@/components/ui/dashboard/OrderTimelineModal";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,9 @@ export default function Home() {
                         <div className="mt-10 mb-5 mx-auto">
                             <ButtonGroup size="md">
                                 <Button>
-                                    اضافة طلب جديد <br /> New Order
+                                    <Link href={"new_order"} className="w-full h-full inline-block">
+                                        اضافة طلب جديد <br /> New Order
+                                    </Link>
                                 </Button>
                                 <Button>
                                     جميع المتطلبات

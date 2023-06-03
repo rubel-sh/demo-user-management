@@ -138,7 +138,6 @@ export default function NewOrders({ handleOpenAddUpdates }) {
                                     <span>{head?.arabic}</span>
                                     <span>{head?.english}</span>
                                 </div>
-                                <br />
 
                                 {head.length !== 0 && (
                                     <input

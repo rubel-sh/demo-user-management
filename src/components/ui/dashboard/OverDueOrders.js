@@ -143,12 +143,11 @@ export default function OverDueOrders() {
                 <thead>
                     <tr>
                         {TABLE_HEAD.map((head) => (
-                            <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4  ">
+                            <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 p-3   ">
                                 <div className="flex flex-col gap-2 ">
                                     <span>{head?.arabic}</span>
                                     <span>{head?.english}</span>
                                 </div>
-                                <br />
                                 {(head?.english === "Employee" ||
                                     head?.english === "Status" ||
                                     head?.english === "Client Name" ||
