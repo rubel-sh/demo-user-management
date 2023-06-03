@@ -6,11 +6,18 @@ import Container from "@/components/widgets/Container";
 import { Badge, Button, ButtonGroup } from "@material-tailwind/react";
 import React, { useState } from "react";
 import Head from "next/head";
+import OrderTimelineModal from "@/components/ui/dashboard/OrderTimelineModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+    // Modal States
+    const [openAddUpdates, setOpenAddUpdates] = useState(false);
+
+    // Other States
     const [select, setSelect] = useState("overdue");
+
+    const handleOpenAddUpdates = () => setOpenAddUpdates(!openAddUpdates);
     return (
         <>
             <Head>
@@ -21,26 +28,40 @@ export default function Home() {
                     <div className="flex flex-col justify-center">
                         {/* Action Buttons */}
                         <div className="mt-10 mb-5 mx-auto">
-                            <ButtonGroup size="lg">
-                                <Button>New Order</Button>
-                                <Button>All order</Button>
-                                <Button onClick={() => setSelect("overdue")}>
-                                    <span className="bg-red-500 p-2 rounded-full mr-3">78</span>
-                                    Overdue Orders
+                            <ButtonGroup size="md">
+                                <Button>
+                                    اضافة طلب جديد <br /> New Order
                                 </Button>
-                                <Button onClick={() => setSelect("neworders")}>
+                                <Button>
+                                    جميع المتطلبات
+                                    <br /> All Order
+                                </Button>
+                                <Button onClick={() => setSelect("overdue")} className="flex">
+                                    <span className="bg-red-500 p-2 rounded-full mr-3">78</span>
+                                    <p>
+                                        تحديثات الطلبات
+                                        <br />
+                                        Overdue Orders
+                                    </p>
+                                </Button>
+                                <Button onClick={() => setSelect("neworders")} className="flex">
                                     <span className="bg-red-500 p-2 rounded-full mr-3">12</span>
-                                    New Orders
+                                    <p>
+                                        المهام
+                                        <br />
+                                        New Orders
+                                    </p>
                                 </Button>
                             </ButtonGroup>
                         </div>
 
                         {/* show overdue / neworders */}
                         {select === "overdue" && <OverDueOrders />}
-                        {select === "neworders" && <NewOrders />}
+                        {select === "neworders" && <NewOrders handleOpenAddUpdates={handleOpenAddUpdates} />}
                     </div>
                 </Container>
             </main>
+            <OrderTimelineModal openAddUpdates={openAddUpdates} handleOpenAddUpdates={handleOpenAddUpdates} />
         </>
     );
 }

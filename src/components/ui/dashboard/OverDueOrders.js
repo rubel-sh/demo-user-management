@@ -1,14 +1,36 @@
 import { Card, Typography } from "@material-tailwind/react";
 
 const TABLE_HEAD = [
-    "Need Update",
-    "Employee",
-    "Status",
-    "Arabic Texts",
-    "Salary on Bank",
-    "Phone",
-    "Client Name",
-    "Order Type",
+    {
+        arabic: "الملاحظات",
+    },
+    {
+        arabic: "الموظف",
+        english: "Employee",
+    },
+    {
+        arabic: "حالة الطلب",
+        english: "Status",
+    },
+    {
+        arabic: "تاريخ إعادة المعالجة",
+    },
+    {
+        arabic: "بنك الراتب",
+        english: "Salary on Bank",
+    },
+    {
+        arabic: "رقم الحوال",
+        english: "Phone",
+    },
+    {
+        arabic: "العميل",
+        english: "Client Name",
+    },
+    {
+        arabic: "نوع الطلب",
+        english: "Order Type",
+    },
 ];
 
 const TABLE_ROWS = [
@@ -121,25 +143,18 @@ export default function OverDueOrders() {
                 <thead>
                     <tr>
                         {TABLE_HEAD.map((head) => (
-                            <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-                                <Typography
-                                    variant="small"
-                                    color="blue-gray"
-                                    className="font-normal leading-none opacity-70"
-                                >
-                                    {head}
-                                    <br />
-                                    {(head === "Employee" ||
-                                        head === "Status" ||
-                                        head === "Client Name" ||
-                                        head === "Order Type") && (
-                                        <input
-                                            type="text"
-                                            className="max-w-[100px] py-1 px-2 mt-2"
-                                            placeholder="Search"
-                                        />
-                                    )}
-                                </Typography>
+                            <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4  ">
+                                <div className="flex flex-col gap-2 ">
+                                    <span>{head?.arabic}</span>
+                                    <span>{head?.english}</span>
+                                </div>
+                                <br />
+                                {(head?.english === "Employee" ||
+                                    head?.english === "Status" ||
+                                    head?.english === "Client Name" ||
+                                    head?.english === "Order Type") && (
+                                    <input type="text" className="max-w-[100px] py-1 px-2 mt-2" placeholder="Search" />
+                                )}
                             </th>
                         ))}
                     </tr>
