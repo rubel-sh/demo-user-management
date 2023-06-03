@@ -8,9 +8,9 @@ export const ButtonWithCounter = ({ count, children }) => (
         New Orders
     </Button>
 );
-export const NewOrderSectionContainer = ({ children }) => <div className="space-y-2">{children}</div>;
+export const NewOrderSectionContainer = ({ children }) => <div className="space-y-4 py-10">{children}</div>;
 
-export const NewOrderSection = ({ children }) => <div>{children}</div>;
+export const NewOrderSection = ({ children }) => <div className="border border-gray-800">{children}</div>;
 
 export const BlackBgTitleBar = ({ children }) => (
     <div className="bg-gray-800 text-white text-center py-2 text-lg ">{children}</div>
@@ -18,4 +18,10 @@ export const BlackBgTitleBar = ({ children }) => (
 
 export const NewOrderSectionFormContainer = ({ children }) => (
     <div className="p-5 grid grid-cols-2 lg:grid-cols-4 gap-4 ">{children}</div>
+);
+
+export const NewOrderSectionFormContainerTwoCol = ({ children }) => <div className="flex flex-wrap">{children}</div>;
+
+export const NewOrderFinalActionButtonContainer = ({ children }) => (
+    <div className=" flex flex-wrap justify-between">{children}</div>
 );

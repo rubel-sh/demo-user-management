@@ -26,48 +26,6 @@ const users = () => {
             Role: "user",
             UID: "uid3",
         },
-        {
-            Password: "password4",
-            Username: "user4",
-            Role: "admin",
-            UID: "uid4",
-        },
-        {
-            Password: "password5",
-            Username: "user5",
-            Role: "user",
-            UID: "uid5",
-        },
-        {
-            Password: "password6",
-            Username: "user6",
-            Role: "user",
-            UID: "uid6",
-        },
-        {
-            Password: "password7",
-            Username: "user7",
-            Role: "admin",
-            UID: "uid7",
-        },
-        {
-            Password: "password8",
-            Username: "user8",
-            Role: "user",
-            UID: "uid8",
-        },
-        {
-            Password: "password9",
-            Username: "user9",
-            Role: "user",
-            UID: "uid9",
-        },
-        {
-            Password: "password10",
-            Username: "user10",
-            Role: "admin",
-            UID: "uid10",
-        },
     ];
 
     return (

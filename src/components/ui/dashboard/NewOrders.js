@@ -52,78 +52,6 @@ const TABLE_ROWS = [
         clientName: "Sara",
         orderType: "Express",
     },
-    {
-        orderDate: "18/04/2023",
-        date: "18/05/2023",
-        salaryOnBank: "700000",
-        phone: "0523456789",
-        clientName: "Nadia",
-        orderType: "Custom",
-    },
-    {
-        orderDate: "07/07/2023",
-        date: "07/08/2023",
-        salaryOnBank: "800000",
-        phone: "0576543210",
-        clientName: "David",
-        orderType: "Standard",
-    },
-    {
-        orderDate: "22/09/2023",
-        date: "22/10/2023",
-        salaryOnBank: "400000",
-        phone: "0509876543",
-        clientName: "Hassan",
-        orderType: "Express",
-    },
-    {
-        orderDate: "05/12/2023",
-        date: "05/01/2024",
-        salaryOnBank: "650000",
-        phone: "0557890123",
-        clientName: "Mariam",
-        orderType: "Custom",
-    },
-    {
-        orderDate: "20/02/2024",
-        date: "20/03/2024",
-        salaryOnBank: "500000",
-        phone: "0561234567",
-        clientName: "Omar",
-        orderType: "Standard",
-    },
-    {
-        orderDate: "07/05/2024",
-        date: "07/06/2024",
-        salaryOnBank: "750000",
-        phone: "0534567890",
-        clientName: "Lina",
-        orderType: "Express",
-    },
-    {
-        orderDate: "22/07/2024",
-        date: "22/08/2024",
-        salaryOnBank: "600000",
-        phone: "0587654321",
-        clientName: "Youssef",
-        orderType: "Custom",
-    },
-    {
-        orderDate: "05/10/2024",
-        date: "05/11/2024",
-        salaryOnBank: "550000",
-        phone: "0501234567",
-        clientName: "Sarah",
-        orderType: "Standard",
-    },
-    {
-        orderDate: "18/12/2024",
-        date: "18/01/2025",
-        salaryOnBank: "700000",
-        phone: "0559876543",
-        clientName: "Ali",
-        orderType: "Express",
-    },
 ];
 
 export default function NewOrders({ handleOpenAddUpdates }) {
@@ -174,7 +102,8 @@ export default function NewOrders({ handleOpenAddUpdates }) {
                                                     d="M12 4.5v15m7.5-7.5h-15"
                                                 />
                                             </svg>
-                                            Add Update
+                                            اضافة تحديث <br />
+                                            Add Updates
                                         </Button>
                                     </Typography>
                                 </td>
