@@ -1,39 +1,56 @@
-import { Button, Dialog, DialogHeader, DialogBody, DialogFooter, Input } from "@material-tailwind/react";
+import {
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
+    Input,
+    Spinner,
+    IconButton,
+} from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { addNewUser } from "../../../utils/dataFetchingFunctions";
+import { useState } from "react";
 
 const AddNewUserModal = ({ openAddNewUser, handleOpenAddNewUser }) => {
-    const handleFormSubmit = async (e) => {
+    const [loading, setLoading] = useState();
+    const [failed, setFailed] = useState();
+
+    console.log(loading, failed);
+
+    const handleFormSubmit = (e) => {
+        setLoading(true);
         e.preventDefault();
         const form = e.target;
 
         const username = form.username.value;
         const password = form.password.value;
         const role = form.role.value;
-
         const formData = new FormData();
 
-        // formData.append("username", username);
-        // formData.append("password", password);
-        // formData.append("role", role);
-        // formData.append("is_active", true);
-        formData.append("username", "احمد");
-        formData.append("password", "12233");
+        formData.append("username", username);
+        formData.append("password", password);
         formData.append("is_active", true);
-        formData.append("role", "EMPLOYEE");
-        console.log(formData);
-
+        formData.append("role", role);
         const headers = {
             "user-id": "1010",
             "auth-key": "sdofmasdmfasdmflkmasdf",
-            ...formData.getHeaders(),
         };
 
         // Create user with data
-        const creatingUser = await addNewUser(formData, headers);
-        // Close Drawer
-        handleOpenAddNewUser();
-        console.log(data);
+        const postUserToDB = async () => {
+            const creatingUser = await addNewUser(formData, { headers });
+            if (!creatingUser.data.status) {
+                setFailed(creatingUser.data.reason);
+                setLoading(false);
+                return;
+            }
+
+            // Close Drawer
+            setLoading(false);
+            handleOpenAddNewUser();
+        };
+        postUserToDB();
     };
 
     return (
@@ -50,11 +67,19 @@ const AddNewUserModal = ({ openAddNewUser, handleOpenAddNewUser }) => {
                         <Input name="password" size="md" label="Password" type="password" required />
                         <Input name="role" size="md" label="Role" required />
                     </div>
+                    <div className="mt-3 text-red-300">{failed}</div>
                 </DialogBody>
                 <DialogFooter className="flex justify-between">
-                    <Button type="submit" variant="gradient" color="green">
-                        Add User
+                    <Button
+                        type="submit"
+                        variant="gradient"
+                        disabled={loading}
+                        color="green"
+                        className="flex items-center gap-2"
+                    >
+                        Add User {loading && <Spinner />}
                     </Button>
+
                     <Button variant="outlined" color="red" onClick={handleOpenAddNewUser}>
                         Close / إغلاق
                     </Button>

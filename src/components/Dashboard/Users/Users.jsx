@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Container from "../../widgets/Container";
 import AddNewUserModal from "./AddNewUserModal";
 import { getAllUsers } from "../../../utils/dataFetchingFunctions";
+import Loading from "../../Shared/Loading";
 
 const Users = () => {
     const [users, setUsers] = useState([]);
@@ -18,7 +19,7 @@ const Users = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("https://miftahaldaar.ratina.co/", {
+                const response = await fetch("https://miftahaldaar.ratina.co/user/all", {
                     headers: {
                         "user-id": "1010",
                         "auth-key": "sdofmasdmfasdmflkmasdf",
@@ -38,7 +39,8 @@ const Users = () => {
 
         fetchData();
     }, []);
-    if (users.length == 0) return <div>Loading</div>;
+
+    if (users.length == 0) return <Loading />;
 
     const TABLE_HEAD = ["", "Password", "Username", "نوع الحساب", "UID/رقم الحساب"];
 
