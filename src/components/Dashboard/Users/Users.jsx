@@ -39,10 +39,9 @@ const Users = () => {
 
         fetchData();
     }, []);
-
     if (users.length == 0) return <Loading />;
 
-    const TABLE_HEAD = ["", "Password", "Username", "نوع الحساب", "UID/رقم الحساب"];
+    const TABLE_HEAD = ["", "كلمة المرور", "اسم المستخدم", "نوع الحساب", "رقم الحساب"];
 
     const TABLE_ROWS = users?.users;
 
@@ -50,7 +49,7 @@ const Users = () => {
         <>
             <Container>
                 <div className="flex justify-between items-center  mt-10 mb-5">
-                    <h2 className="text-2xl font-bold">USERS LIST</h2>
+                    <h2 className="text-2xl font-bold">قائمة المستخدمين</h2>
                     <Button
                         onClick={handleOpenAddNewUser}
                         color="green"
@@ -70,7 +69,7 @@ const Users = () => {
                                 d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                             />
                         </svg>
-                        Add New User
+                        إضافة مستخدم جديد
                     </Button>
                 </div>
 
@@ -111,7 +110,7 @@ const Users = () => {
                                                             d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
                                                         />
                                                     </svg>
-                                                    Save
+                                                    يحفظ
                                                 </Button>
                                                 {/* Disable */}
                                                 <Button size="sm" className="flex items-center gap-3  ">
@@ -129,7 +128,7 @@ const Users = () => {
                                                             d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
                                                         />
                                                     </svg>
-                                                    Disable
+                                                    إبطال
                                                 </Button>
                                             </ButtonGroup>
                                         </td>

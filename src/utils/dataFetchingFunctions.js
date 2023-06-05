@@ -17,7 +17,7 @@ export const getAllUsers = async () => {
 };
 
 export const addNewUser = async (formData, headers) => {
-    const newUser = await axios.post(baseUrl + "user/create", formData, headers);
+    const newUser = await axios.post(baseUrl + "user/create", formData, { headers });
     return newUser;
 };
 
