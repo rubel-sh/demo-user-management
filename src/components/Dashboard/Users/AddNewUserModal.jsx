@@ -28,7 +28,7 @@ const AddNewUserModal = ({ openAddNewUser, handleOpenAddNewUser }) => {
 
         // Create user with data
         const postUserToDB = async () => {
-            const creatingUser = await addNewUser(formData, { headers });
+            const creatingUser = await addNewUser(formData, headers);
             if (!creatingUser.data.status) {
                 setFailed(creatingUser.data.reason);
                 setLoading(false);
